@@ -1,4 +1,28 @@
-url: ~
+package: incomepredictability
+title: "incomepredictability"
+authors:
+  - name: "Michael Tham, Yui Mikuriya, Benjamin Gerochi, Izzy Zhou"
+    role: [aut, cre]
+
 template:
   bootstrap: 5
 
+navbar:
+  structure:
+    left:
+      - home
+      - reference
+      - articles
+
+reference:
+  - title: "Main Functions"
+    contents:
+      - train_logistic_model
+      - compute_model_metrics
+      - train_test_split
+      - download_data
+
+articles:
+  - title: "Using incomepredictability"
+    contents:
+      - predict-income

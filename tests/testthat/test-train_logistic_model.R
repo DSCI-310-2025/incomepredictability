@@ -1,21 +1,22 @@
 # tests/testthat/test-train_logistic_model.R
 library(testthat)
 library(pROC)
+library(incomepredictability)
 
 # Source the function to test
-source(here::here("R", "train_logistic_model.R"))
+# source(here::here("R", "train_logistic_model.R"))
 
 # Create a small test dataset
 create_test_data <- function() {
-  set.seed(123)  # For reproducibility
+  set.seed(123) # For reproducibility
   n <- 100
   age <- rnorm(n, mean = 40, sd = 10)
   education_num <- sample(1:16, n, replace = TRUE)
   hours_per_week <- rnorm(n, mean = 40, sd = 10)
 
   # Create binary outcome with some relationship to predictors
-  logit <- -5 + 0.05*age + 0.3*education_num + 0.02*hours_per_week + rnorm(n, 0, 1)
-  prob <- 1/(1 + exp(-logit))
+  logit <- -5 + 0.05 * age + 0.3 * education_num + 0.02 * hours_per_week + rnorm(n, 0, 1)
+  prob <- 1 / (1 + exp(-logit))
   income <- factor(ifelse(prob > 0.5, ">50K", "<=50K"), levels = c("<=50K", ">50K"))
 
   # Create and return the data frame
@@ -96,10 +97,24 @@ test_that("train_logistic_model formula construction is correct", {
   result <- train_logistic_model(
     data = test_data,
     outcome_var = "income",
-    predictor_vars = c("age", "hours_per_week")  # Excluding education_num
+    predictor_vars = c("age", "hours_per_week") # Excluding education_num
   )
 
   # Check that the formula includes only the specified predictors
   expected_formula <- as.formula("income ~ age + hours_per_week")
   expect_equal(deparse(result$formula), deparse(expected_formula))
+})
+
+test_that("train_logistic_model coerces non-factor outcome to factor", {
+  df <- create_test_data()
+  df$income <- as.character(df$income) # convert to character
+
+  result <- train_logistic_model(
+    data = df,
+    outcome_var = "income",
+    predictor_vars = c("age", "education_num", "hours_per_week")
+  )
+
+  expect_s3_class(result$model, "glm")
+  expect_true(all(c("<=50K", ">50K") %in% levels(as.factor(df$income))))
 })

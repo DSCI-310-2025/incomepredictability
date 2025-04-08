@@ -1,7 +1,8 @@
 # test_download_data.R
 library(testthat)
 library(here)
-source(here::here("R", "download_data.R"))
+# source(here::here("R", "download_data.R"))
+library(incomepredictability)
 
 
 # test_that("download_data works correctly", {

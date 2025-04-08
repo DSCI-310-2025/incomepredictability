@@ -9,6 +9,11 @@
 - `train_logistic_model()` – Builds a logistic regression model to predict binary income outcomes.
 - `compute_model_metrics()` – Computes evaluation metrics from a confusion matrix including accuracy, precision, recall, and Cohen's kappa.
 
+## Code Coverage
+The current test coverage of the package is **96.67%**, as measured by [`covr::report()`](https://covr.r-lib.org).
+
+![Screenshot of coverage report](docs/coverage-screenshot.png)
+
 ## Where this package fits in the R ecosystem
 
 `income-predictability` is intended as a lightweight and beginner-friendly package focused on pedagogy and reproducibility in statistical modeling. It complements existing packages in the R ecosystem:

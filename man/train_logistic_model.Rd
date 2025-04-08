@@ -27,6 +27,5 @@ train_logistic_model(
 A list containing the trained model and the ROC curve object
 }
 \description{
-This function trains a logistic regression model on the provided dataset
-using the specified predictor variables and binary outcome variable.
+Train a logistic regression model for binary classification
 }

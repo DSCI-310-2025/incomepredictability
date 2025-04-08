@@ -1,9 +1,4 @@
-# R/train_logistic_model.R
-
 #' Train a logistic regression model for binary classification
-#'
-#' This function trains a logistic regression model on the provided dataset
-#' using the specified predictor variables and binary outcome variable.
 #'
 #' @param data A data frame containing the variables to be used in the model
 #' @param outcome_var A string specifying the name of the binary outcome variable
@@ -11,10 +6,11 @@
 #' @param pos_class A string specifying the positive class in the outcome variable
 #' @param neg_class A string specifying the negative class in the outcome variable
 #'
+#' @importFrom stats as.formula binomial glm predict
+#' @importFrom utils download.file
+#'
 #' @return A list containing the trained model and the ROC curve object
 #' @export
-#'
-
 train_logistic_model <- function(data, outcome_var, predictor_vars,
                                  pos_class = ">50K", neg_class = "<=50K") {
   # Check if required packages are available

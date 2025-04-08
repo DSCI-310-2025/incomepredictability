@@ -25,10 +25,11 @@ jobs:
         with:
           extra-packages: any::rcmdcheck
 
-      # Install missing packages here
+      # Install missing packages here (fix syntax issue)
       - name: Install required R packages
         run: |
-          install.packages(c("here", "pROC"))
+          R -e "install.packages('here')"
+          R -e "install.packages('pROC')"
 
       - uses: r-lib/actions/check-r-package@v2
         with:

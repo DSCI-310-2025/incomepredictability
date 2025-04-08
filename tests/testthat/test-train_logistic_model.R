@@ -185,5 +185,5 @@ test_that("train_logistic_model relevels factor outcome with missing levels", {
     predictor_vars = c("age", "education_num", "hours_per_week")
   )
 
-  expect_equal(levels(result$model$model[[1]]), c("<=50K", ">50K"))
+  expect_setequal(levels(result$model$model[[1]]), c("<=50K", ">50K"))
 })

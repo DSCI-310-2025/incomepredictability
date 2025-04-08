@@ -18,9 +18,9 @@ RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
-VignetteBuilder: knitr
-Config/testthat/edition: 3
-Imports:
+    testthat (>= 3.0.0),
+    mockery,
     here,
     pROC
+VignetteBuilder: knitr
+Config/testthat/edition: 3

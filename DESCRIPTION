@@ -11,7 +11,6 @@ Description: The incomepredictability package helps you to carry out a Logistic 
     2. `train_test_split()`: This function allows you to split a data frame into training and testing subsets.
     3. `train_logistic_model()`: This function trains a logistic regression model for binary classification.
     4. `compute_model_metrics()`: This function computes evaluation metrics such as sensitivity, specificity, precision, accuracy, cohen's kappa from a confusion matrix.
-    
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

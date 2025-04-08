@@ -31,10 +31,12 @@ See the package vignette (`vignettes/predict-income.Rmd`) for an end-to-end exam
 
 ## License
 
-## License
-
 - Code in this repository is licensed under the [MIT License](LICENSE).
 - Non-code content (e.g., documentation, vignettes) is licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+
+# Contributing
+
+Contributions to this project are welcome. Please follow the CONTRIBUTING.md if you'd like to contribute.
 
 ## Authors
 

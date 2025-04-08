@@ -1,5 +1,3 @@
-# R/download_data.R
-
 #' Download a dataset from a URL and save it locally
 #'
 #' @param url A string specifying the URL of the dataset
@@ -7,6 +5,7 @@
 #' @return No return value, called for side effects (saves file locally)
 #' @examples
 #' download_data("https://example.com/data.csv", "data/adult.csv")
+#' @export
 download_data <- function(url, output) {
   download.file(url, output, mode = "wb")
   message("Dataset downloaded successfully.")

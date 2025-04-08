@@ -1,9 +1,16 @@
 Package: incomepredictability
-Title: What the Package Does (One Line, Title Case)
+Title: Logistic Regression Tools for U.S. Adult Income Prediction
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Michael", "Tham", , "michaelthamk@gmail.com", role = c("aut", "cre"))
+    person("Yui", "Mikuirya", , "yui.mikuriya@gmail.com", role = c("aut", "cre"))
+    person("Benjamin", "Gerochi", , "bgerochi@gmail.com", role = c("aut", "cre"))
+    person("Izzy", "Zhou", , "zx2yizzy@gmail.com", role = c("aut", "cre"))
+Description: The incomepredictability package helps you to carry out a Logistic Regression based on the U.S. Adult Income dataset. There are 4 functions available to utilize:
+    1. `download_data()`: This function allows you to download a dataset from a URL and save it locally.
+    2. `train_test_split()`: This function allows you to split a data frame into training and testing subsets.
+    3. `train_logistic_model()`: This function trains a logistic regression model for binary classification.
+    4. `compute_model_metrics()`: This function computes evaluation metrics such as sensitivity, specificity, precision, accuracy, cohen's kappa from a confusion matrix.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -11,9 +18,9 @@ RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
-VignetteBuilder: knitr
-Config/testthat/edition: 3
-Imports:
+    testthat (>= 3.0.0),
+    mockery,
     here,
     pROC
+VignetteBuilder: knitr
+Config/testthat/edition: 3

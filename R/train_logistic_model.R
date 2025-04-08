@@ -29,15 +29,20 @@ train_logistic_model <- function(data, outcome_var, predictor_vars,
 
   if (!all(predictor_vars %in% names(data))) {
     missing_vars <- predictor_vars[!predictor_vars %in% names(data)]
-    stop("The following predictor variables are not present in the data: ",
-         paste(missing_vars, collapse = ", "))
+    stop(
+      "The following predictor variables are not present in the data: ",
+      paste(missing_vars, collapse = ", ")
+    )
   }
 
   # Ensure outcome variable is a factor with appropriate levels
   if (!is.factor(data[[outcome_var]])) {
     data[[outcome_var]] <- factor(data[[outcome_var]], levels = c(neg_class, pos_class))
-  } else if (!all(c(neg_class, pos_class) %in% levels(data[[outcome_var]]))) {
-    data[[outcome_var]] <- factor(data[[outcome_var]], levels = c(neg_class, pos_class))
+    # } else if (!all(c(neg_class, pos_class) %in% levels(data[[outcome_var]]))) {
+    #   data[[outcome_var]] <- factor(data[[outcome_var]], levels = c(neg_class, pos_class))
+    # }
+  } else {
+    data[[outcome_var]] <- factor(as.character(data[[outcome_var]]), levels = c(neg_class, pos_class))
   }
 
   # Create the formula

@@ -1,7 +1,8 @@
 # tests/test_train_test_split.R
 library(testthat)
 library(here)
-source(here::here("R", "train_test_split.R"))
+# source(here::here("R", "train_test_split.R"))
+library(incomepredictability)
 
 test_that("train_test_split correctly splits a data frame", {
   set.seed(1234)
@@ -15,7 +16,7 @@ test_that("train_test_split correctly splits a data frame", {
 
   # Test the split structure
   expect_true(is.list(result))
-  expect_named(result, c("train", "test"))  # check for proper element names
+  expect_named(result, c("train", "test")) # check for proper element names
   # Row counts
   total_rows <- nrow(result$train) + nrow(result$test)
   expect_equal(total_rows, nrow(sample_df)) # train + test should = original nrow

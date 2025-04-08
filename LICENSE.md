@@ -1,4 +1,4 @@
-MIT License
+# MIT License
 
 Copyright (c) 2025 Michael Tham, Yui Mikuriya, Benjamin Gerochi, Izzy Zhou
 

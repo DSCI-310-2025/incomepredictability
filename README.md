@@ -10,7 +10,8 @@
 - `compute_model_metrics()` – Computes evaluation metrics from a confusion matrix including accuracy, precision, recall, and Cohen's kappa.
 
 ## Code Coverage
-to add
+![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![Test Coverage](https://github.com/DSCI-310-2025/incomepredictability/actions/workflows/test-coverage.yaml/badge.svg)
 
 ## Where this package fits in the R ecosystem
 

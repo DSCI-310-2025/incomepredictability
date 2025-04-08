@@ -11,7 +11,6 @@
 
 ## Code Coverage
 ![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
-![Test Coverage](https://github.com/DSCI-310-2025/incomepredictability/actions/workflows/test-coverage.yaml/badge.svg)
 
 ## Where this package fits in the R ecosystem
 

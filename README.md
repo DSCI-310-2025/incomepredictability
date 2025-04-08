@@ -10,9 +10,8 @@
 - `compute_model_metrics()` – Computes evaluation metrics from a confusion matrix including accuracy, precision, recall, and Cohen's kappa.
 
 ## Code Coverage
-The current test coverage of the package is **96.67%**, as measured by [`covr::report()`](https://covr.r-lib.org).
-
-![Screenshot of coverage report](docs/coverage-screenshot.png)
+![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![Test Coverage](https://github.com/DSCI-310-2025/incomepredictability/actions/workflows/test-coverage.yaml/badge.svg)
 
 ## Where this package fits in the R ecosystem
 
@@ -45,4 +44,4 @@ Contributions to this project are welcome. Please follow the CONTRIBUTING.md if 
 
 ## Authors
 
-Developed by Group 8 for STAT 301 at UBC.
+Developed by Michael Tham, Yui Mikuriya, Benjamin Gerochi, and Izzy Zhou (Group 8) for STAT 301 at UBC.

@@ -197,3 +197,25 @@ test_that("train_logistic_model works with only one predictor", {
   )
   expect_s3_class(result$model, "glm")
 })
+
+test_that("train_logistic_model errors on invalid argument types", {
+  df <- create_test_data()
+
+  expect_error(train_logistic_model(
+    data = df,
+    outcome_var = c("income", "other"),
+    predictor_vars = c("age", "education_num")
+  ), "`outcome_var` must be a single string.")
+
+  expect_error(train_logistic_model(
+    data = df,
+    outcome_var = "income",
+    predictor_vars = character(0)
+  ), "`predictor_vars` must be a non-empty character vector.")
+
+  expect_error(train_logistic_model(
+    data = df,
+    outcome_var = "income",
+    predictor_vars = list("age", "education_num")
+  ), "`predictor_vars` must be a non-empty character vector.")
+})

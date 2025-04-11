@@ -46,3 +46,12 @@ test_that("compute_model_metrics errors with incorrect labels", {
     "Confusion matrix must have '<=50K' and '>50K' as row and column names."
   )
 })
+
+test_that("compute_model_metrics errors on invalid input types", {
+  expect_error(compute_model_metrics(data.frame(a = 1:2)), "Input must be a matrix.")
+
+  not_2x2 <- matrix(1:9, nrow = 3)
+  rownames(not_2x2) <- c("<=50K", ">50K", "??")
+  colnames(not_2x2) <- c("<=50K", ">50K", "??")
+  expect_error(compute_model_metrics(not_2x2), "Confusion matrix must be 2x2.")
+})

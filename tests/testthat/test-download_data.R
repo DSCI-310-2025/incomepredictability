@@ -41,3 +41,11 @@ test_that("download_data fails with invalid URL", {
     regexp = "Failed to download file"
   )
 })
+
+test_that("download_data errors on empty or non-string inputs", {
+  expect_error(download_data("", "output.csv"), "`url` must be a non-empty string.")
+  expect_error(download_data(123, "output.csv"), "`url` must be a non-empty string.")
+
+  expect_error(download_data("https://example.com/data.csv", ""), "`output` must be a non-empty string.")
+  expect_error(download_data("https://example.com/data.csv", 123), "`output` must be a non-empty string.")
+})

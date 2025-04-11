@@ -63,3 +63,11 @@ test_that("train_test_split handles 1-row input", {
 test_that("train_test_split errors when input is not a data frame", {
   expect_error(train_test_split(1:10, 0.8), "data frame")
 })
+
+test_that("train_test_split errors when given invalid train_fraction", {
+  df <- data.frame(x = 1:10, y = 11:20)
+
+  expect_error(train_test_split(df, -0.1), "`train_fraction` must be a numeric value between 0 and 1")
+  expect_error(train_test_split(df, 1.5), "`train_fraction` must be a numeric value between 0 and 1")
+  expect_error(train_test_split(df, "eighty percent"), "`train_fraction` must be a numeric value between 0 and 1")
+})

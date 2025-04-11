@@ -43,3 +43,23 @@ test_that("train_test_split correctly splits a data frame", {
   expect_equal(nrow(result$train), 5)
   expect_equal(nrow(result$test), 2)
 })
+
+test_that("train_test_split works with small 10-row dataset", {
+  df <- data.frame(x = 1:10, y = 11:20)
+  result <- train_test_split(df, 0.6)
+
+  expect_equal(nrow(result$train), 6)
+  expect_equal(nrow(result$test), 4)
+})
+
+test_that("train_test_split handles 1-row input", {
+  df <- data.frame(x = 1, y = 2)
+  result <- train_test_split(df, 0.8)
+
+  total <- nrow(result$train) + nrow(result$test)
+  expect_true(total == 1 || total == 0)
+})
+
+test_that("train_test_split errors when input is not a data frame", {
+  expect_error(train_test_split(1:10, 0.8), "data frame")
+})

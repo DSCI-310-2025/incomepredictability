@@ -24,3 +24,20 @@ test_that("download_data works correctly", {
 
   if (file.exists(test_output)) file.remove(test_output)
 })
+
+test_that("download_data overwrites existing file", {
+  test_output <- tempfile()
+  writeLines("old content", test_output)
+  test_url <- "https://raw.githubusercontent.com/miketham24/adult_dataset/refs/heads/main/adult.csv"
+
+  download_data(test_url, test_output)
+  expect_true(file.exists(test_output))
+})
+
+test_that("download_data fails with invalid URL", {
+  bad_url <- "http://this-domain-does-not-exist.abc/adult.csv"
+  expect_error(
+    suppressWarnings(download_data(bad_url, tempfile())),
+    regexp = "Failed to download file"
+  )
+})

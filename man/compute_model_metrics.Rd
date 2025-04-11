@@ -15,3 +15,22 @@ A data frame with model evaluation metrics
 \description{
 Compute evaluation metrics from a confusion matrix
 }
+\details{
+The function computes the following metrics:
+\itemize{
+\item Sensitivity (True Positive Rate)
+\item Specificity (True Negative Rate)
+\item Precision (Positive Predictive Value)
+\item Accuracy
+\item Cohen's Kappa
+}
+}
+\examples{
+cm <- matrix(c(50, 10, 5, 35),
+  nrow = 2, byrow = TRUE,
+  dimnames = list(c("<=50K", ">50K"), c("<=50K", ">50K"))
+)
+metrics <- compute_model_metrics(cm)
+print(metrics)
+
+}

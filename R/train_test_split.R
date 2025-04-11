@@ -1,5 +1,3 @@
-# R/train_test_split.R
-
 #' Split a data frame into training and testing subsets
 #'
 #' @param data A data frame or tibble to be split into training and testing subsets
@@ -10,11 +8,18 @@
 #' @export
 #'
 #' @examples
-#' # Given an existing data frame called df
-#' # result <- train_test_split(df, 0.8)
-#' # head(result$train)
-#' # head(result$test)
+#' result <- train_test_split(mtcars, 0.8)
+#' head(result$train)
+#' head(result$test)
 train_test_split <- function(data, train_fraction = 0.8) {
+  if (!is.data.frame(data)) {
+    stop("`data` must be a data frame.")
+  }
+  if (!is.numeric(train_fraction) || length(train_fraction) != 1 ||
+    train_fraction <= 0 || train_fraction >= 1) {
+    stop("`train_fraction` must be a numeric value between 0 and 1 (exclusive).")
+  }
+
   set.seed(1234)
   train_indices <- sample(
     seq_len(nrow(data)),
@@ -24,8 +29,8 @@ train_test_split <- function(data, train_fraction = 0.8) {
   train_data <- data[train_indices, ]
   test_data <- data[-train_indices, ]
 
-  list(
+  return(list(
     train = train_data,
     test = test_data
-  )
+  ))
 }

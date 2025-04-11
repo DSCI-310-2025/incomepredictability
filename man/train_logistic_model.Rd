@@ -29,3 +29,19 @@ A list containing the trained model and the ROC curve object
 \description{
 Train a logistic regression model for binary classification
 }
+\details{
+This function trains a logistic regression model using the specified outcome and predictor variables.
+It also computes the ROC curve for the model.
+The outcome variable should be a binary factor with two levels.
+The function will convert the outcome variable to a factor if it is not already.
+The positive class is assumed to be the one with a higher value.
+The function requires the \code{pROC} package for ROC curve computation.
+If the \code{pROC} package is not installed, an error will be thrown.
+}
+\examples{
+# Example usage
+# Assuming `adult_data` is a data frame with the necessary columns
+# model_result <- train_logistic_model(adult_data, "income", c("age", "education_num"))
+# print(model_result$model)
+# plot(model_result$roc_curve)
+}

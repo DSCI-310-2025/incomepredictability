@@ -1,6 +1,6 @@
 # income-predictability
 
-`income-predictability` is an R package developed by STAT 301 Group 8 that provides streamlined functions to support income classification tasks based on demographic and work-related data. It is built as part of a larger data science pipeline to predict whether an individual earns more than \$50K annually using features such as age, education, and hours worked per week.
+`income-predictability` is an R package developed by DSCI 310 Group 8 that provides streamlined functions to support income classification tasks based on demographic and work-related data. It is built as part of a larger data science pipeline to predict whether an individual earns more than \$50K annually using features such as age, education, and hours worked per week.
 
 ## Key Features
 
@@ -43,4 +43,4 @@ Contributions to this project are welcome. Please follow the CONTRIBUTING.md if 
 
 ## Authors
 
-Developed by Michael Tham, Yui Mikuriya, Benjamin Gerochi, and Izzy Zhou (Group 8) for STAT 301 at UBC.
+Developed by Michael Tham, Yui Mikuriya, Benjamin Gerochi, and Izzy Zhou (Group 8) for DSCI 310 at UBC.

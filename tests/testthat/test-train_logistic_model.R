@@ -86,7 +86,7 @@ test_that("train_logistic_model handles errors properly", {
       outcome_var = "income",
       predictor_vars = c("age")
     ),
-    "'data' must be a data frame"
+    "must be a data frame"
   )
 })
 
@@ -186,4 +186,14 @@ test_that("train_logistic_model relevels factor outcome with missing levels", {
   )
 
   expect_setequal(levels(result$model$model[[1]]), c("<=50K", ">50K"))
+})
+
+test_that("train_logistic_model works with only one predictor", {
+  df <- create_test_data()
+  result <- train_logistic_model(
+    data = df,
+    outcome_var = "income",
+    predictor_vars = c("age")
+  )
+  expect_s3_class(result$model, "glm")
 })

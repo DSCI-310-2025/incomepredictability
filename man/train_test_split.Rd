@@ -20,8 +20,7 @@ A list containing two elements:
 Split a data frame into training and testing subsets
 }
 \examples{
-# Given an existing data frame called df
-# result <- train_test_split(df, 0.8)
-# head(result$train)
-# head(result$test)
+result <- train_test_split(mtcars, 0.8)
+head(result$train)
+head(result$test)
 }

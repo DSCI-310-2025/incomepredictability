@@ -12,7 +12,7 @@ download_data(url, output)
 \item{output}{A string specifying the local file path to save the dataset}
 }
 \value{
-No return value, called for side effects (saves file locally)
+TRUE if download succeeds, otherwise throws an error
 }
 \description{
 Download a dataset from a URL and save it locally
